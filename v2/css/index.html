@@ -386,7 +386,27 @@
     <h1>CSS</h1>
   
   
-    <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2>
+    <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h4 id="记录一个公用的css实现图片的放大缩小"><a href="#记录一个公用的css实现图片的放大缩小" class="headerlink" title="记录一个公用的css实现图片的放大缩小"></a>记录一个公用的css实现图片的放大缩小</h4><pre><code class="hljs css">@<span class="hljs-keyword">keyframes</span> scaleDraw &#123;  <span class="hljs-comment">/*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/</span>
+    0%&#123;
+        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1);  <span class="hljs-comment">/*开始为原始大小*/</span>
+    &#125;
+    25%&#123;
+        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1.5); <span class="hljs-comment">/*放大1.1倍*/</span>
+    &#125;
+    50%&#123;
+        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1);
+    &#125;
+    75%&#123;
+        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1.5);
+    &#125;
+&#125;
+
+<span class="hljs-selector-class">.showImg</span> &#123;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">animation</span>: scaleDraw <span class="hljs-number">5s</span> ease-in-out infinite;
+&#125;</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">"showImg "</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span></code></pre>
   
   
   <div class="footer">
