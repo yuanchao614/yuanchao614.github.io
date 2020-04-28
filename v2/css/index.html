@@ -165,6 +165,12 @@
 <li>
   <a href="/v2/network/" class="nav-link">NetWork</a>
 </li>
+<li>
+  <a href="/v2/mini-program/" class="nav-link">小程序</a>
+</li>
+<li>
+  <a href="/v2/git/" class="nav-link">Git</a>
+</li>
 <li class="nav-dropdown-container language">
   <a class="nav-link">Iterview</a><span class="arrow"></span>
   <ul class="nav-dropdown">
@@ -265,6 +271,12 @@
 </li>
 <li>
   <a href="/v2/network/" class="nav-link">NetWork</a>
+</li>
+<li>
+  <a href="/v2/mini-program/" class="nav-link">小程序</a>
+</li>
+<li>
+  <a href="/v2/git/" class="nav-link">Git</a>
 </li>
 <li class="nav-dropdown-container language">
   <a class="nav-link">Iterview</a><span class="arrow"></span>
@@ -386,7 +398,7 @@
     <h1>CSS</h1>
   
   
-    <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h4 id="记录一个公用的css实现图片的放大缩小"><a href="#记录一个公用的css实现图片的放大缩小" class="headerlink" title="记录一个公用的css实现图片的放大缩小"></a>记录一个公用的css实现图片的放大缩小</h4><pre><code class="hljs css">@<span class="hljs-keyword">keyframes</span> scaleDraw &#123;  <span class="hljs-comment">/*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/</span>
+    <h2 id="CSS3图片放大缩小"><a href="#CSS3图片放大缩小" class="headerlink" title="CSS3图片放大缩小"></a>CSS3图片放大缩小</h2><h4 id="记录一个公用的css实现图片的放大缩小"><a href="#记录一个公用的css实现图片的放大缩小" class="headerlink" title="记录一个公用的css实现图片的放大缩小"></a>记录一个公用的css实现图片的放大缩小</h4><pre><code class="hljs css">@<span class="hljs-keyword">keyframes</span> scaleDraw &#123;  <span class="hljs-comment">/*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/</span>
     0%&#123;
         <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1);  <span class="hljs-comment">/*开始为原始大小*/</span>
     &#125;
@@ -407,6 +419,29 @@
   <span class="hljs-attribute">animation</span>: scaleDraw <span class="hljs-number">5s</span> ease-in-out infinite;
 &#125;</code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">"showImg "</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span></code></pre>
+<h2 id="CSS使用background-image后background-radius无效的解决方法"><a href="#CSS使用background-image后background-radius无效的解决方法" class="headerlink" title="CSS使用background-image后background-radius无效的解决方法"></a>CSS使用background-image后background-radius无效的解决方法</h2><h3 id="CSS使用background-image后background-radius无效可以通过在外层使用padding来实现"><a href="#CSS使用background-image后background-radius无效可以通过在外层使用padding来实现" class="headerlink" title="CSS使用background-image后background-radius无效可以通过在外层使用padding来实现"></a>CSS使用background-image后background-radius无效可以通过在外层使用padding来实现</h3><pre><code class="hljs css">/* 父标签*/
+
+.enterprise-login &#123; 
+  width: 80%;
+  height: 90rpx;
+  border-radius: 50rpx;
+  padding: 2px; // 需要的border宽度
+  background-image: linear-gradient(0deg, rgba(13, 204, 255, 1) 0%, rgba(63, 112, 255, 1) 100%);
+&#125;
+/* 子标签*/
+.box &#123;
+  width: 100%;
+  height: 100%;
+  border-radius: 50rpx; // 和父级标签的border-radius保持一致
+  background: rgba(41, 150, 254);
+&#125;</code></pre>
+<pre><code class="hljs html">// view小程序标签
+ <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"enterprise-login"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box center"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"businessUsersLogin"</span>&gt;</span>企业用户登录<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>      
+    <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></code></pre>
+
   
   
   <div class="footer">

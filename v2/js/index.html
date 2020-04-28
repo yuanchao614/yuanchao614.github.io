@@ -165,6 +165,12 @@
 <li>
   <a href="/v2/network/" class="nav-link">NetWork</a>
 </li>
+<li>
+  <a href="/v2/mini-program/" class="nav-link">小程序</a>
+</li>
+<li>
+  <a href="/v2/git/" class="nav-link">Git</a>
+</li>
 <li class="nav-dropdown-container language">
   <a class="nav-link">Iterview</a><span class="arrow"></span>
   <ul class="nav-dropdown">
@@ -265,6 +271,12 @@
 </li>
 <li>
   <a href="/v2/network/" class="nav-link">NetWork</a>
+</li>
+<li>
+  <a href="/v2/mini-program/" class="nav-link">小程序</a>
+</li>
+<li>
+  <a href="/v2/git/" class="nav-link">Git</a>
 </li>
 <li class="nav-dropdown-container language">
   <a class="nav-link">Iterview</a><span class="arrow"></span>
@@ -386,7 +398,7 @@
     <h1>JavaScript</h1>
   
   
-    <h2 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h2><h4 id="base64原理"><a href="#base64原理" class="headerlink" title="base64原理"></a>base64原理</h4><p>Base64编码要求把3个8位字节（3<em>8=24）转化为4个6位的字节（4</em>6=24），之后在6位的前面补两个0，形成8位一个字节的形式。 如果剩下的字符不足3个字节，则用0填充，输出字符使用’=’，因此编码后输出的文本末尾可能会出现1或2个’=’</p>
+    <h2 id="base64原理"><a href="#base64原理" class="headerlink" title="base64原理"></a>base64原理</h2><h4 id="base64原理-1"><a href="#base64原理-1" class="headerlink" title="base64原理"></a>base64原理</h4><p>Base64编码要求把3个8位字节（3<em>8=24）转化为4个6位的字节（4</em>6=24），之后在6位的前面补两个0，形成8位一个字节的形式。 如果剩下的字符不足3个字节，则用0填充，输出字符使用’=’，因此编码后输出的文本末尾可能会出现1或2个’=’</p>
 <h4 id="如何获取base64图片大小"><a href="#如何获取base64图片大小" class="headerlink" title="如何获取base64图片大小"></a>如何获取base64图片大小</h4><p>通过base64编码原理我们知道，base64的图片字符流中的每8个字符就有两个是用0补充，而且字符流的末尾还可能存在‘=’号，我们可以通过这个原理计算图片的文件流大小。</p>
 <pre><code class="hljs js">getImgByteSize(data) &#123;
 		<span class="hljs-keyword">if</span> (data.graphicContents) &#123; <span class="hljs-comment">// 获取base64图片byte大小</span>
@@ -408,7 +420,71 @@
 <blockquote>
 <p>data.graphicContents是后端获取的base64图片的字符串。</p>
 </blockquote>
+<h2 id="常用的正则表达式验证归纳"><a href="#常用的正则表达式验证归纳" class="headerlink" title="常用的正则表达式验证归纳"></a>常用的正则表达式验证归纳</h2><pre><code class="hljs js"><span class="hljs-comment">// 手机号码验证正则表达式</span>
+ <span class="hljs-keyword">const</span> mobileRegExp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"^[0-9]&#123;11,11&#125;$"</span>, <span class="hljs-string">""</span>);
+<span class="hljs-comment">// 六位数组组成的验证码</span>
+<span class="hljs-keyword">const</span> number = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"^[0-9]&#123;6,6&#125;$"</span>, <span class="hljs-string">""</span>);
+<span class="hljs-comment">// 6到16位由字母数字组成的密码</span>
+<span class="hljs-keyword">const</span> repass = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]&#123;6,16&#125;$"</span>, <span class="hljs-string">""</span>);
+<span class="hljs-comment">// 不能存在3位及其以上连续的字母或数字</span>
+<span class="hljs-keyword">const</span> repass = <span class="hljs-regexp">/(\w)*(\w)\2&#123;2&#125;(\w)*/g</span>;
+<span class="hljs-comment">// 车牌号</span>
+<span class="hljs-keyword">const</span> carPlante =<span class="hljs-regexp">/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]&#123;1&#125;[A-Z]&#123;1&#125;[a-zA-Z0-9]&#123;4,6&#125;$/</span>;</code></pre>
+<h2 id="javascript小数转百分数-小数保留多少位小数点"><a href="#javascript小数转百分数-小数保留多少位小数点" class="headerlink" title="javascript小数转百分数(小数保留多少位小数点)"></a>javascript小数转百分数(小数保留多少位小数点)</h2><pre><code class="hljs js">  toPercent(point) &#123;
+    <span class="hljs-keyword">let</span> str = <span class="hljs-built_in">Number</span>(point * <span class="hljs-number">100</span>).toFixed(<span class="hljs-number">1</span>);
+    str += <span class="hljs-string">'%'</span>;
+    <span class="hljs-keyword">return</span> str;
+&#125;</code></pre>
+<h2 id="前端下载导出Excel"><a href="#前端下载导出Excel" class="headerlink" title="前端下载导出Excel"></a>前端下载导出Excel</h2><blockquote>
+<p>前端通过后端返回的blob格式响应导出下载文件，前端在设置请求响应时设置 responseType: ‘blob’</p>
+</blockquote>
+<pre><code class="hljs js"><span class="hljs-comment">// res是后端接口返回</span>
+ <span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> Blob([res], &#123; <span class="hljs-attr">type</span>: <span class="hljs-string">'application/csv'</span> &#125;); <span class="hljs-comment">// type设置为导出excel</span>
+ <span class="hljs-keyword">const</span> fileName = <span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().valueOf()&#125;</span>.xls`</span>; <span class="hljs-comment">// 自定义导出文件命名</span>
+ <span class="hljs-keyword">const</span> link = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'a'</span>); <span class="hljs-comment">// 创建一个超链接</span>
+ link.href = <span class="hljs-built_in">window</span>.URL.createObjectURL(blob); <span class="hljs-comment">// 创建createObjectURL</span>
+ link.download = fileName;
+ link.click(); <span class="hljs-comment">// 触发下载</span>
+ <span class="hljs-built_in">window</span>.URL.revokeObjectURL(link.href); <span class="hljs-comment">// 释放</span></code></pre>
+<h2 id="Rxjs实现输入框输入内容后（自定义输入完成后多长时间像后端发请求获取数据）"><a href="#Rxjs实现输入框输入内容后（自定义输入完成后多长时间像后端发请求获取数据）" class="headerlink" title="Rxjs实现输入框输入内容后（自定义输入完成后多长时间像后端发请求获取数据）"></a>Rxjs实现输入框输入内容后（自定义输入完成后多长时间像后端发请求获取数据）</h2><blockquote>
+<p>通过用户在输入框完成操作后多长时间后发请求获取数据，以angular2项目为列</p>
+</blockquote>
+<pre><code class="hljs js"><span class="hljs-comment">// 关键字搜索trackingList</span>
 
+  searchText$ = <span class="hljs-keyword">new</span> Subject&lt;string&gt;(); <span class="hljs-comment">// 模糊搜索查询</span>
+
+ngOnInit() &#123;
+	<span class="hljs-keyword">this</span>.searchPipeSet();
+&#125;
+   onSearch(e: string) &#123;
+    <span class="hljs-keyword">this</span>.searchText$.next(e);
+  &#125;
+
+  searchPipeSet() &#123;
+    <span class="hljs-keyword">this</span>.searchText$.asObservable().pipe(
+      debounceTime(<span class="hljs-number">1000</span>) <span class="hljs-comment">// 设置时长</span>
+    ).subscribe(<span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> &#123;
+      <span class="hljs-comment">// console.log(str);</span>
+	  <span class="hljs-comment">// 发送请求</span>
+      <span class="hljs-keyword">this</span>.pageNation.curentPage = <span class="hljs-number">1</span>;
+      <span class="hljs-keyword">const</span> param = &#123;
+        <span class="hljs-attr">keyWords</span>: str,
+        <span class="hljs-attr">pageNum</span>: <span class="hljs-keyword">this</span>.pageNation.curentPage,
+        <span class="hljs-attr">pageSize</span>: <span class="hljs-keyword">this</span>.pageNation.size
+      &#125;;
+      <span class="hljs-keyword">this</span>.reportsService.getAppUserInfoList(param).subscribe(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(r);
+        <span class="hljs-keyword">if</span> (r.msgCode === <span class="hljs-string">'200'</span>) &#123;
+          <span class="hljs-keyword">const</span> resData = r.data.content;
+          <span class="hljs-keyword">this</span>.pageNation.totalElements = r.data.totalElements;
+          <span class="hljs-keyword">this</span>.listOfData = resData;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+          <span class="hljs-keyword">this</span>.message.create(<span class="hljs-string">'error'</span>, <span class="hljs-string">`<span class="hljs-subst">$&#123;r.msg&#125;</span>`</span>);
+        &#125;
+      &#125;);
+    &#125;);
+  &#125;</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">nz-input</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Name/Mac Address"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"keyWords"</span> (<span class="hljs-attr">ngModelChange</span>)=<span class="hljs-string">"onSearch($event)"</span> [<span class="hljs-attr">nzSize</span>]=<span class="hljs-string">"small"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #E9E9E9;border-radius: 0%;"</span> /&gt;</span></code></pre>
   
   
   <div class="footer">
